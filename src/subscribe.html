@@ -1,0 +1,36 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+
+<body>
+  <py-config>
+    [[fetch]]
+    files = [
+      "./rclpy/__init__.py",
+      "./rclpy/node.py",
+      "./std_msgs/msg/String.py"
+    ]
+  </py-config>
+  <py-script>
+import rclpy
+from rclpy.node import Node
+
+from std_msgs.msg import String
+
+
+class MinimalPublisher(Node):
+    def __init__(self):
+        super().__init__('minimal_publisher')
+        self.publisher_ = self.create_publisher(String, 'topic', 10)
+
+def main(args=None):
+    node = MinimalPublisher()
+
+
+main()
+  </py-script>
+  </body>
+</html>

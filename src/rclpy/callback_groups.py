@@ -1,0 +1,2 @@
+class CallbackGroup:
+    pass
